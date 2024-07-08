@@ -18,58 +18,57 @@ function App() {
       setTodos(todos)
     }
   }, [])
-  
-  
-  const saveTLS = (a=todos) => {
+    const saveToLS = (a=todos) => {
     localStorage.setItem("todos", JSON.stringify(a))
   }
 
-  
   const toggleFinished = (e) => {
-    setShowFinished(!showFinished)
-    
+    setshowFinished(!showFinished)
   }
   
   
-  const handleAdd = () => {
-    setTodos([...todos, { id: uuidv4(), todo, isCompleted: false }])
-    setTodo('')
-    console.log(todos)
-    let newTodos = todos
-    console.log(newTodos)
-    saveTLS(newTodos)
-  }
-  const handleEdit = (e, id) => {
-    let t = todos.filter(i => i.id === id)
+
+
+  const handleEdit = (e, id)=>{ 
+    let t = todos.filter(i=>i.id === id) 
     setTodo(t[0].todo)
-    let newTodos = todos.filter(item => {
-      return item.id !== id
-    })
-    setTodos(newTodos)
-    saveTLS()
-  }
-  const handleDelete = (e, id) => {
-    let newTodos = todos.filter(item => {
-      return item.id !== id
-    })
-    setTodos(newTodos)
-    saveTLS()
-  }
-  const handleChange = (e) => {
-    setTodo(e.target.value)
-  }
-  
-  const handleCheckbox = (e) => {
-    let id = e.target.name
-    let index = todos.findIndex(item => {
-      return item.id === id;
-    })
-    let newTodos = [...todos]
-    newTodos[index].isCompleted = !newTodos[index].isCompleted
-    setTodos(newTodos)
-    saveTLS()
+    let newTodos = todos.filter(item=>{
+      return item.id!==id
+    }); 
+    setTodos(newTodos) 
+    saveToLS()
   }
 
+  const handleDelete= (e, id)=>{  
+    let newTodos = todos.filter(item=>{
+      return item.id!==id
+    }); 
+    console.log(newTodos)
+    setTodos(newTodos) 
+    saveToLS(newTodos)
+  }
+
+  const handleAdd= ()=>{
+    setTodos([...todos, {id: uuidv4(), todo, isCompleted: false}])
+    setTodo("") 
+    todos.push({id: uuidv4(), todo, isCompleted: false})
+    saveToLS()
+  }
+  
+  const handleChange= (e)=>{ 
+    setTodo(e.target.value)
+  }
+
+  const handleCheckbox = (e) => { 
+    let id = e.target.name;  
+    let index = todos.findIndex(item=>{
+      return item.id === id;
+    }) 
+    let newTodos = [...todos];
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    setTodos(newTodos)
+    saveToLS()
+  }
   
   return (
     <>
