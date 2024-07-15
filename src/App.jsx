@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import { v4 as uuidv4 } from 'uuid';
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
+import Footer from './components/Footer';
 
 function App() {
 
@@ -73,17 +74,17 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto my-5 rounded-xl bg-violet-300 p-5 min-h-[80vh] md:w-1/2 w-[85%] drop-shadow-2xl">
+      <div className="container mx-auto my-5 rounded-xl bg-gray-600 p-5 min-h-[80vh] md:w-1/2 w-[85%] drop-shadow-2xl text-white">
         <div className="addTodo my-3">
           <h2 className='text-lg font-bold my-2'>Add a Todo</h2>
           <div className="flex">
-          <input onChange={handleChange} value={todo} type="text" className='w-3/4 p-2 rounded-lg' />
+          <input onChange={handleChange} value={todo} type="text" className='w-3/4 p-2 rounded-lg text-black' />
           <button className='btn mx-5 px-5 py-2' disabled={todo.length<3} onClick={handleAdd}>Save</button>
           </div>
         </div>
         <input  id='show' onClick={toggleFinished} type="checkbox" checked={showFinished} className='w-[15px] h-[15px]' /> 
-        <label htmlFor="show">Show Finished</label>
-        <h2 className='text-2xl text-white font-bold h-12 flex items-center justify-center bg-[#8645cf] my-4 rounded-lg '>Your Todos</h2>
+        <label htmlFor="show"> Show Finished</label>
+        <h2 className='text-2xl text-white font-bold h-12 flex items-center justify-center bg-[#828283] my-4 rounded-lg '>Your Todos</h2>
         <div className="todos flex flex-col gap-4 justify-center w-full items-center">
           {todos.length === 0 && <div>No Todos to display</div>}
           {todos.map(item => {
@@ -103,6 +104,7 @@ function App() {
           })}
         </div>
       </div>
+      <Footer />
     </>
   )
 }
