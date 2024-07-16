@@ -74,7 +74,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto my-5 rounded-xl bg-gray-600 p-5 min-h-[80vh] md:w-1/2 w-[85%] drop-shadow-2xl text-white">
+      <div className="container mx-auto my-5 rounded-xl bg-gray-600 p-5 pb-20 md:w-1/2 w-[85%] drop-shadow-2xl text-white">
         <div className="addTodo my-3">
           <h2 className='text-lg font-bold my-2'>Add a Todo</h2>
           <div className="flex">
@@ -85,17 +85,17 @@ function App() {
         <input  id='show' onClick={toggleFinished} type="checkbox" checked={showFinished} className='w-[15px] h-[15px]' /> 
         <label htmlFor="show"> Show Finished</label>
         <h2 className='text-2xl text-white font-bold h-12 flex items-center justify-center bg-[#828283] my-4 rounded-lg '>Your Todos</h2>
-        <div className="todos flex flex-col gap-4 justify-center w-full items-center">
+        <div className="todos flex flex-col gap-4 justify-between md:w-full w-[90%] items-center px-4a">
           {todos.length === 0 && <div>No Todos to display</div>}
           {todos.map(item => {
-            return (showFinished || !item.isCompleted) && <div key={item.id} className="todo flex w-[80%] justify-between">
-              <div className="flex gap-5 items-center w-[70%] h-auto">
+            return (showFinished || !item.isCompleted) && <div key={item.id} className="todo flex w-[85%] justify-between">
+              <div className="flex gap-5 items-center w-[80%] md:w-[70%] m-0 h-auto">
                 <span className='m-0 p-0 h-[18px]'>
                 <input name={item.id} type="checkbox" checked={item.isCompleted} onClick={handleCheckbox} className='w-[18px] h-[18px]' />
                 </span>
                 <div className={item.isCompleted ? "line-through" : ""}>{item.todo}</div>
               </div>
-              <div className="buttons w-[20%] flex h-full items-center">
+              <div className="buttons w-[20%] md:w-[20%] flex h-full items-center">
                 <button className='btn mx-1 h-[25px]' onClick={(e) => { handleEdit(e, item.id) }}><CiEdit /></button>
                 <button className='btn mx-1 h-[25px]' onClick={(e) => { handleDelete(e, item.id) }}><MdDelete /></button>
               </div>
