@@ -74,7 +74,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto my-5 rounded-xl bg-gray-600 p-5 pb-20 md:w-1/2 w-[85%] drop-shadow-2xl text-white">
+      <div className="container mx-auto my-10 rounded-3xl p-5 pb-20 md:w-1/2 w-[85%] drop-shadow-2xl text-white shadow-2xl">
         <div className="addTodo my-3">
           <h2 className='text-lg font-bold my-2'>Add a Todo</h2>
           <div className="flex">
@@ -84,7 +84,7 @@ function App() {
         </div>
         <input  id='show' onClick={toggleFinished} type="checkbox" checked={showFinished} className='w-[15px] h-[15px]' /> 
         <label htmlFor="show"> Show Finished</label>
-        <h2 className='text-2xl text-white font-bold h-12 flex items-center justify-center bg-[#828283] my-4 rounded-lg '>Your Todos</h2>
+        <h2 className='text-2xl text-white font-bold h-12 flex items-center justify-center bg-[#4e4e4e] my-4 rounded-lg '>Your Todos</h2>
         <div className="todos flex flex-col gap-4 justify-between md:w-full w-[90%] items-center px-4a">
           {todos.length === 0 && <div>No Todos to display</div>}
           {todos.map(item => {

@@ -9,5 +9,9 @@
   }
 
 body{
-  background: rgb(36, 35, 37);
+  background: black;
+}
+.container{
+  box-shadow: 0 0 40px 10px rgb(167, 240, 253);
+  background-color: rgba(42, 47, 47, 0.812);
 }
